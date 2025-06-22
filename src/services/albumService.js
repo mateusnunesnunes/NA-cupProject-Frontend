@@ -30,3 +30,24 @@ export async function fetchAlbumById(id) {
   if (!response.ok) throw new Error("Erro ao buscar álbum");
   return await response.json();
 }
+
+
+export async function updateStickerOwnership(albumId, stickerId, owned) {
+
+  console.log(albumId,stickerId)
+  const response = await fetch(`${API_URL}/albums/${albumId}/stickers/${stickerId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ owned })
+  });
+
+
+
+  if (!response.ok) {
+    throw new Error(`Erro ao atualizar figurinha: ${response.status}`);
+  }
+
+  return await response.json();
+}

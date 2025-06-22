@@ -35,7 +35,7 @@ export default function AlbumScreen() {
     async function loadAlbums() {
       try {
         setLoading(true);
-        const data = await fetchAlbumsByUser(1); // usuário fixo para testes
+        const data = await fetchAlbumsByUser(1); // usuário fixo para testes, mudar depois
         setAlbums(data);
       } catch (err: any) {
         setError(err.message || 'Erro desconhecido');
