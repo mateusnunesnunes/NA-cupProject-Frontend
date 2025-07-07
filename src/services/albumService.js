@@ -18,6 +18,7 @@ export async function fetchAlbums() {
 }
 
 export async function fetchAlbumsByUser(userId) {
+  console.log(`${API_URL}/users/${userId}/albums`)
   const response = await fetch(`${API_URL}/users/${userId}/albums`);
   if (!response.ok) {
     throw new Error(`Erro na requisição: ${response.status}`);
@@ -26,6 +27,7 @@ export async function fetchAlbumsByUser(userId) {
 }
 
 export async function fetchAlbumById(id) {
+  console.log(`${API_URL}/albums/${id}`)
   const response = await fetch(`${API_URL}/albums/${id}`);
   if (!response.ok) throw new Error("Erro ao buscar álbum");
   return await response.json();
